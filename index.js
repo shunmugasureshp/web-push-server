@@ -97,7 +97,7 @@ app.post('/unsubscribe', function (req, res) {
     res.send('Subscription removed!');
 });
 
-let PORT = process.env.PORT || 8080;
+let PORT = 8000;
 app.listen(PORT, function () {
     console.log(`push_server listening on port ${PORT}!`)
 });
