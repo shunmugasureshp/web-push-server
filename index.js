@@ -11,12 +11,12 @@ let app = express();
 
 let subscribers = [];
 
-let VAPID_SUBJECT = process.env.VAPID_SUBJECT;
-let VAPID_PUBLIC_KEY = process.env.VAPID_PUBLIC_KEY;
-let VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY;
+let VAPID_SUBJECT = "Web Push";//process.env.VAPID_SUBJECT;
+let VAPID_PUBLIC_KEY = "BJMCdnqsQsHqHgzf8JTEuQe854IbRBc-9HjXOrf8qCSvKcX4MvCoANRLpgm4Mtl73Nn7si4mp10Lpq2ftfK9jBw";//process.env.VAPID_PUBLIC_KEY;
+let VAPID_PRIVATE_KEY = "oOwRPpMcyC4Q2yw2ew3sOefMKlsBdT4R1Sjimo-nX58";//process.env.VAPID_PRIVATE_KEY;
 
 //Auth secret used to authentication notification requests.
-let AUTH_SECRET = process.env.AUTH_SECRET;
+let AUTH_SECRET = "1234";//process.env.AUTH_SECRET;
 
 if (!VAPID_SUBJECT) {
     return console.error('VAPID_SUBJECT environment variable not found.')
