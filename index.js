@@ -11,7 +11,7 @@ let app = express();
 
 let subscribers = [];
 
-let VAPID_SUBJECT = "Web Push";//process.env.VAPID_SUBJECT;
+let VAPID_SUBJECT = "http://example.com";//process.env.VAPID_SUBJECT;
 let VAPID_PUBLIC_KEY = "BJMCdnqsQsHqHgzf8JTEuQe854IbRBc-9HjXOrf8qCSvKcX4MvCoANRLpgm4Mtl73Nn7si4mp10Lpq2ftfK9jBw";//process.env.VAPID_PUBLIC_KEY;
 let VAPID_PRIVATE_KEY = "oOwRPpMcyC4Q2yw2ew3sOefMKlsBdT4R1Sjimo-nX58";//process.env.VAPID_PRIVATE_KEY;
 
