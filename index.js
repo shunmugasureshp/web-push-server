@@ -44,6 +44,8 @@ app.get('/status', function (req, res) {
 });
 
 app.get('/notify/all', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     /*if(req.get('auth-secret') != AUTH_SECRET) {
         console.log("Missing or incorrect auth-secret header. Rejecting request.");
         return res.sendStatus(401);
