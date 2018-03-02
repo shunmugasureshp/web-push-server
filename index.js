@@ -74,6 +74,8 @@ app.get('/notify/all', function (req, res) {
 });
 
 app.post('/subscribe', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     let endpoint = req.body['notificationEndPoint'];
     let publicKey = req.body['publicKey'];
     let auth = req.body['auth'];
