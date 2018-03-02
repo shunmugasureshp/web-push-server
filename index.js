@@ -44,10 +44,10 @@ app.get('/status', function (req, res) {
 });
 
 app.get('/notify/all', function (req, res) {
-    if(req.get('auth-secret') != AUTH_SECRET) {
+    /*if(req.get('auth-secret') != AUTH_SECRET) {
         console.log("Missing or incorrect auth-secret header. Rejecting request.");
         return res.sendStatus(401);
-    }
+    }*/
     
     let message = req.query.message || `Willy Wonka's chocolate is the best!`;
     let clickTarget = req.query.clickTarget || `http://www.favoritemedium.com`;
