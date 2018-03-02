@@ -94,6 +94,8 @@ app.post('/subscribe', function (req, res) {
 });
 
 app.post('/unsubscribe', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     let endpoint = req.body['notificationEndPoint'];
     
     subscribers = subscribers.filter(subscriber => { endpoint == subscriber.endpoint });
