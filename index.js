@@ -91,6 +91,7 @@ app.post('/subscribe', function (req, res) {
 
     subscribers.push(pushSubscription);
     console.log(" Subscriber Added :: Total Subscriber = "+subscribers.length);
+    console.log(JSON.stringify(subscribers));
     res.send('Subscription accepted!');
 });
 
