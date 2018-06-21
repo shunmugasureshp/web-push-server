@@ -90,7 +90,7 @@ app.post('/subscribe', function (req, res) {
     };
 
     subscribers.push(pushSubscription);
-
+    console.log(" Subscriber Added :: Total Subscriber = "+subscribers.length);
     res.send('Subscription accepted!');
 });
 
@@ -100,7 +100,7 @@ app.post('/unsubscribe', function (req, res) {
     let endpoint = req.body['notificationEndPoint'];
     
     subscribers = subscribers.filter(subscriber => { endpoint == subscriber.endpoint });
-
+    console.log(" Subscriber Removed :: Total Subscriber = "+subscribers.length);
     res.send('Subscription removed!');
 });
 
