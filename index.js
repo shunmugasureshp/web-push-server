@@ -7,6 +7,8 @@ let atob = require('atob');
 let bodyParser = require('body-parser');
 let util = require('util');
 
+const { Client } = require('pg');
+
 let app = express();
 
 let subscribers = [];
