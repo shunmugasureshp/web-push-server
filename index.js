@@ -43,6 +43,10 @@ app.get('/status', function (req, res) {
     res.send('Server Running!')
 });
 
+app.get('/sublist', function (req, res) {
+    res.send(JSON.stringify(subscribers));
+});
+
 app.get('/notify/all', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
