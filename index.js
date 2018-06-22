@@ -7,7 +7,7 @@ let atob = require('atob');
 let bodyParser = require('body-parser');
 let util = require('util');
 
-left Client  = require('pg');
+let Client  = require('pg');
 
 let app = express();
 
