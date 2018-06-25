@@ -53,7 +53,7 @@ app.get('/status', function (req, res) {
 });
 
 app.get('/dbview', function (req, res) {
-    client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+    client.query('SELECT * from subscriber;', (err, res) => {
       if (err) throw err;
       for (let row of res.rows) {
         console.log(JSON.stringify(row));
@@ -63,6 +63,16 @@ app.get('/dbview', function (req, res) {
     
     
     res.send(JSON.stringify(subscribers));
+});
+
+app.get('/dbinsert', function (req, res) {
+    client.query('insert into subscriber values(1,"data");', (err, res) => {
+     console.log(res);
+      client.end();
+    });
+    
+    
+   
 });
 
 app.get('/notify/all', function (req, res) {
