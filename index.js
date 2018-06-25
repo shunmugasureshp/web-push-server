@@ -78,7 +78,7 @@ app.get('/dbinsert', function (req, res) {
     });
     
     client.connect()
-    .then(() => client.query('insert into subscriber values(1,"data")))
+    .then(() => client.query('insert into subscriber values(1,"data")'))
     .then((result) => {
       console.log(result);
       client.end();
