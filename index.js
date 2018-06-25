@@ -30,6 +30,13 @@ if (!VAPID_SUBJECT) {
     return console.error('AUTH_SECRET environment variable not found.')
 }
 
+ const client = new Client({
+      connectionString: process.env.DATABASE_URL,
+      ssl: true,
+    });
+
+    client.connect();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -45,15 +52,7 @@ app.get('/status', function (req, res) {
     res.send('Server Running!')
 });
 
-app.get('/sublist', function (req, res) {
-    
-    const client = new Client({
-      connectionString: process.env.DATABASE_URL,
-      ssl: true,
-    });
-
-    client.connect();
-    
+app.get('/dbview', function (req, res) {
     client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
       if (err) throw err;
       for (let row of res.rows) {
