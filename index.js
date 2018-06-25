@@ -35,7 +35,7 @@ if (!VAPID_SUBJECT) {
       ssl: true,
     });
 
-    client.connect();
+   
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -53,11 +53,15 @@ app.get('/status', function (req, res) {
 });
 
 app.get('/dbview', function (req, res) {
-    client.query('SELECT * from subscriber;', (err, res) => {
-      if (err) throw err;
-      for (let row of res.rows) {
-        console.log(JSON.stringify(row));
-      }
+    
+    client.connect()
+    .then(() => client.query('SELECT * FROM subscriber'))
+    .then((result) => {
+      console.log(result);
+      client.end();
+    })
+    .catch(() => {
+      res.end('ERROR');
       client.end();
     });
     
@@ -66,6 +70,8 @@ app.get('/dbview', function (req, res) {
 });
 
 app.get('/dbinsert', function (req, res) {
+    client.connect();
+    
     client.query('insert into subscriber values(1,"data");', (err, res) => {
      console.log(res);
       client.end();
